@@ -22,11 +22,11 @@
 					</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 						<?php if (estaLogado()) { ?>
-						<a class="dropdown-item" href="<?= $indexPHP ?>/pages/carta/index.php">Listar Cartas</a>
+							<a class="dropdown-item" href="<?= $indexPHP ?>/pages/carta/index.php">Listar Cartas</a>
 						<?php } ?>
 						<a class="dropdown-item" href="<?= $indexPHP ?>/pages/carta/list-favoritas.php">Cartas Mais Favoritadas</a>
 						<?php if (estaLogado()) { ?>
-						<a class="dropdown-item" href="<?= $indexPHP ?>/pages/carta/favoritas.php">Favoritas</a>
+							<a class="dropdown-item" href="<?= $indexPHP ?>/pages/carta/favoritas.php">Favoritas</a>
 						<?php } ?>
 					</div>
 
@@ -49,17 +49,16 @@
 
 				</li>
 				<?php if (estaLogado()) { ?>
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						Usuário
-					</a>
-					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						
-						<a class="dropdown-item" href="<?= $indexPHP ?>/pages/usuario/index.php">Listar Usuários</a>
-						<a class="dropdown-item" href="<?= $indexPHP ?>/pages/usuario/create.php">Cadastrar usuário</a>
-						<a class="dropdown-item" href="<?= $indexPHP ?>/pages/usuario/perfil.php">Perfil do Usuário</a>
-					</div>
-				</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Usuário
+						</a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" href="<?= $indexPHP ?>/pages/usuario/index.php">Listar Usuários</a>
+							<a class="dropdown-item" href="<?= $indexPHP ?>/pages/usuario/create.php">Cadastrar usuário</a>
+							<a class="dropdown-item" href="<?= $indexPHP ?>/pages/usuario/perfil.php">Perfil do Usuário</a>
+						</div>
+					</li>
 				<?php } ?>
 			</ul>
 
