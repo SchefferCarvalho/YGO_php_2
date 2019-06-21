@@ -29,6 +29,10 @@
       <label for="inputAddress2">Nick do Usuário:</label>
       <input type="text" class="form-control" name="nick" placeholder="Nick Usuário">
     </div>
+    <div class="form-group form-check">
+      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+      <label class="form-check-label" for="exampleCheck1">Conta de Administrador</label>
+    </div>
     <button type="submit" class="btn btn-primary">Criar</button>
   </div>
 </form>
