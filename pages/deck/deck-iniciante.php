@@ -2,20 +2,22 @@
 <?php include('../../inc/header.php'); ?>
 
 <section class="container mt-3">
-	<?php 
+	<?php
 
 	$url = $indexAPI . '/tb_deck';
-	
+
 	$decks = GetAPI($url);
 	?>
 
-	<table class="table">
-		<thead>
-			<th>
-				<font size="5">
-					Decks para Iniciantes
-				</font>
-			</th>
+	<table class="table table-striped table-bordered rounded">
+		<h3 class="rounded bg-dark text-white text-center">
+			<!-- <font size="5"> -->
+			<b>
+				Decks para Iniciantes
+			</b>
+			<!-- </font> -->
+		</h3>
+		<thead class="thead-dark">
 			<tr>
 				<th scope="col">Nome do Deck</th>
 			</tr>

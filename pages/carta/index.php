@@ -14,17 +14,17 @@ verificarAutenticacao($indexPHP);
 	?>
 
 	<div class="container">
-		<div class="form-group row">
+		<div class="form-group row mt-2">
 
 			<div class="col-sm-6">
 				<div class="input-group mb-3">
 					<div class="input-group-prepend">
-						<label class="input-group-text" for="inputGroupSelect01">Categorias</label>
+						<label class="input-group-text" for="inputGroupSelect01">Tipo</label>
 					</div>
 					<select class="custom-select" id="inputGroupSelect01">
-						<option value="1">Monster</option>
-						<option value="2">Spell</option>
-						<option value="3">Trap</option>
+						<option value="1">Monstro</option>
+						<option value="2">Magica</option>
+						<option value="3">Armadilha</option>
 					</select>
 				</div>
 			</div>
@@ -47,12 +47,13 @@ verificarAutenticacao($indexPHP);
 					</div>
 					<select class="custom-select" id="inputGroupSelect01">
 						<option value="1">...</option>
-						<option value="2">Earth</option>
-						<option value="3">Water</option>
-						<option value="4">Fire</option>
-						<option value="5">Wind</option>
-						<option value="6">Light</option>
-						<option value="7">Dark</option>
+						<option value="2">EARTH</option>
+						<option value="3">WATER</option>
+						<option value="4">FIRE</option>
+						<option value="5">WIND</option>
+						<option value="6">LIGHT</option>
+						<option value="7">DARK</option>
+						<option value="8">DIVINE</option>
 					</select>
 				</div>
 			</div>
@@ -60,7 +61,7 @@ verificarAutenticacao($indexPHP);
 			<div class="col-sm-3">
 				<div class="input-group mb-3">
 					<div class="input-group-prepend">
-						<label class="input-group-text" for="inputGroupSelect01">Tipo</label>
+						<label class="input-group-text" for="inputGroupSelect01">Raça</label>
 					</div>
 					<select class="custom-select" id="inputGroupSelect01">
 						<option value="1">...</option>
@@ -85,6 +86,7 @@ verificarAutenticacao($indexPHP);
 						<option value="21">Sea Serpent</option>
 						<option value="22">Reptile</option>
 						<option value="23">Psychic</option>
+						<option value="24">Divine-Beast</option>
 					</select>
 				</div>
 			</div>
@@ -97,8 +99,15 @@ verificarAutenticacao($indexPHP);
 			<div class="col-sm-3">
 				<input class="form-control" id="nome" placeholder="">
 			</div>
+			<div class="col-sm-3">
+				<div class="form-check">
+					<input class="form-check-input" type="checkbox" id="checkFavorito">
+					<label class="form-check-label" for="checkFavorito">
+						Favoritas
+					</label>
+				</div>
+			</div>
 		</div>
-
 		<div class="form-group row">
 			<div class="col-sm-9">
 				<button type="button" class="btn btn-primary">Buscar</button>
@@ -106,23 +115,23 @@ verificarAutenticacao($indexPHP);
 		</div>
 	</div>
 
-	<table class="table">
-		<thead>
-			<!-- <th> Lista de Cartas</th> -->
-			<th>
-				<font size="5">
+	<table class="table table-striped table-bordered rounded">
+		<h2 class="rounded bg-dark text-white text-center">
+			<!-- <font size="5"> -->
+				<b>
 					Cartas
-				</font>
-			</th>
-			<tr>
+				</b>
+			<!-- </font> -->
+		</h2>
+		<thead class="thead-dark">
+			<!-- <th> Lista de Cartas</th> -->
+			<tr class="text-center">
 				<th scope="col">Nome da Carta</th>
 				<th scope="col">Tipo Carta</th>
 				<th scope="col">Level da Carta</th>
 				<th scope="col">Ataque</th>
 				<th scope="col">Defesa</th>
 				<th scope="col">Quantidade de cartas</th>
-				<th></th>
-
 			</tr>
 		</thead>
 		<tbody>
@@ -132,11 +141,11 @@ verificarAutenticacao($indexPHP);
 				foreach ($cartas as $carta) : ?>
 					<tr>
 						<td><?= $carta['nme_carta'] ?></td>
-						<td><?= tipoCarta($carta['idt_tipo_carta']) ?></td>
-						<td><?= $carta['level_carta'] ?></td>
-						<td><?= $carta['ataque_carta'] ?></td>
-						<td><?= $carta['defesa_carta'] ?></td>
-						<td><input style="width:50px;" type="number" min="0" max="3"></td>
+						<td class="text-center"><?= tipoCarta($carta['idt_tipo_carta']) ?></td>
+						<td class="text-center"><?= $carta['level_carta'] ?></td>
+						<td class="text-center"><?= $carta['ataque_carta'] ?></td>
+						<td class="text-center"><?= $carta['defesa_carta'] ?></td>
+						<td class="text-center"><input class="text-center" style="width:120px;" type="number" min="0" max="3"></td>
 					</tr>
 				<?php endforeach;
 		endif; ?>

@@ -7,8 +7,10 @@
 
 <body>
 
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand" href="<?= $indexPHP ?>/pages/painel/index.php">Yugioh</a>
+	<nav class="navbar navbar-expand-lg bg-dark">
+		<a class="navbar-brand text-white" href="<?= $indexPHP ?>/pages/painel/index.php"><b>
+				<img class="mr-2" src="https://apprecs.org/gp/images/app-icons/300/1f/com.logickllc.yugipedia.android.jpg" alt="" width="37" height="37">
+				YugiohHub</b></a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
@@ -17,7 +19,7 @@
 			<ul class="navbar-nav mr-auto">
 
 				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						Cartas
 					</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -33,7 +35,7 @@
 				</li>
 
 				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						Deck
 					</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -50,7 +52,7 @@
 				</li>
 				<?php if (estaLogado()) { ?>
 					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							Usuário
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">

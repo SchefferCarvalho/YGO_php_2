@@ -1,18 +1,16 @@
 <?php include('../../config.php'); ?>
-<?php include('../../inc/header.php'); 
-verificarAutenticacao($indexPHP);
+<?php include('../../inc/header.php');
+// verificarAutenticacao($indexPHP);
 
 ?>
 
 <form>
   <div class="mx-auto mt-5 mb-5" style="width: 500px;">
-    <th>
+    <h4 class="rounded bg-dark text-white text-center">
       <b>
-        <font size="5">
-          Cadastrar Usuário
-        </font>
+        Cadastrar Usuário
       </b>
-    </th>
+    </h4>
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="inputEmail4">Email</label>

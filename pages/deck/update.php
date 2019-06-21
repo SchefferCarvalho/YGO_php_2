@@ -24,17 +24,17 @@ $cartas = json_decode($cartas, true)
 
 
 <div class="container">
-    <div class="form-group row">
+    <div class="form-group row mt-2">
 
         <div class="col-sm-6">
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                    <label class="input-group-text" for="inputGroupSelect01">Categorias</label>
+                    <label class="input-group-text" for="inputGroupSelect01">Tipo</label>
                 </div>
                 <select class="custom-select" id="inputGroupSelect01">
-                    <option value="1">Monster</option>
-                    <option value="2">Spell</option>
-                    <option value="3">Trap</option>
+                    <option value="1">Monstro</option>
+                    <option value="2">Magica</option>
+                    <option value="3">Armadilha</option>
                 </select>
             </div>
         </div>
@@ -57,12 +57,13 @@ $cartas = json_decode($cartas, true)
                 </div>
                 <select class="custom-select" id="inputGroupSelect01">
                     <option value="1">...</option>
-                    <option value="2">Earth</option>
-                    <option value="3">Water</option>
-                    <option value="4">Fire</option>
-                    <option value="5">Wind</option>
-                    <option value="6">Light</option>
-                    <option value="7">Dark</option>
+                    <option value="2">EARTH</option>
+                    <option value="3">WATER</option>
+                    <option value="4">FIRE</option>
+                    <option value="5">WIND</option>
+                    <option value="6">LIGHT</option>
+                    <option value="7">DARK</option>
+                    <option value="8">DIVINE</option>
                 </select>
             </div>
         </div>
@@ -70,7 +71,7 @@ $cartas = json_decode($cartas, true)
         <div class="col-sm-3">
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                    <label class="input-group-text" for="inputGroupSelect01">Tipo</label>
+                    <label class="input-group-text" for="inputGroupSelect01">Raça</label>
                 </div>
                 <select class="custom-select" id="inputGroupSelect01">
                     <option value="1">...</option>
@@ -95,6 +96,7 @@ $cartas = json_decode($cartas, true)
                     <option value="21">Sea Serpent</option>
                     <option value="22">Reptile</option>
                     <option value="23">Psychic</option>
+                    <option value="24">Divine-Beast</option>
                 </select>
             </div>
         </div>
@@ -106,6 +108,14 @@ $cartas = json_decode($cartas, true)
         <label for="inputNome" class="col-sm-1 col-form-label">Nome</label>
         <div class="col-sm-3">
             <input class="form-control" id="nome" placeholder="">
+        </div>
+        <div class="col-sm-3">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="checkFavorito">
+                <label class="form-check-label" for="checkFavorito">
+                    Favoritas
+                </label>
+            </div>
         </div>
     </div>
 

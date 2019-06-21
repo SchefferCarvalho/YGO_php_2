@@ -1,5 +1,8 @@
  <?php include('../../config.php'); ?>
  <?php include('../../inc/header.php'); ?>
+ <!-- <link rel='stylesheet' href="/css/bootstrap.min.css">
+ <link rel='stylesheet' href="/css/style.css"> -->
+
  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
    <ul class="navbar-nav mr-auto">
    </ul>
@@ -10,13 +13,29 @@
  </nav>
 
  <main role="main">
+   <style type="text/css">
+     .jumbotron-with-background {
+       background-image: url("https://wallpaperplay.com/walls/full/7/7/e/275483.jpg");
+       /* background-position: center; */
+       background-repeat: no-repeat;
+       background-size: cover;
+     }
+
+     .well {
+       background-color: rgba(0, 0, 0, 0.7);
+     }
+   </style>
 
    <!-- Principal jumbotron, para a principal mensagem de marketing ou call to action -->
-   <div class="jumbotron">
-     <div class="container">
-       <h1 class="display-3">Yu-gi-oh! Cards</h1>
-       <p>Foi criado com a intenção de auxiliar jogadores e colecionadores de cartas do jogo, facilitando a organização em relação as cartas já obtidas e as que faltam. Para mais informações acerca do jogo de cartas YGO clicar abaixo.</p>
-       <p><a class="btn btn-primary btn-lg" href="https://www.yugioh-card.com/en/" role="button">Saiba mais »</a></p>
+   <div class="jumbotron jumbotron-fluid jumbotron-with-background">
+     <div class="container mw-100 shadow-lg rounded well">
+       <div class="container">
+         <h1 class="display-3 text-white mb-5"><b>Yu-gi-oh! Cards</b></h1>
+         <p class="text-white mb-5"><b>Foi criado com a intenção de auxiliar jogadores e colecionadores de cartas do jogo,
+             facilitando a organização em relação as cartas já obtidas e as que faltam. Para mais informações acerca do
+             jogo de cartas YGO clicar abaixo.</b></p>
+         <p><a class="btn btn-primary btn-lg mb-5" href="https://www.yugioh-card.com/en/" role="button">Saiba mais »</a></p>
+       </div>
      </div>
    </div>
 

@@ -14,18 +14,34 @@ verificarAutenticacao($indexPHP);
 
 <main role="main">
 
+  <style type="text/css">
+    .jumbotron-with-background {
+      background-image: url("http://static1.squarespace.com/static/5b90acbae2ccd103c4e1515f/5b90ae0fcd83667e00e3a25c/5b93fcc8562fa717cd99ab05/1536425162624/SAM-027+%286%29.jpg");
+      /* background-position: center; */
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .well {
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+  </style>
+
   <!-- Principal jumbotron, para a principal mensagem de marketing ou call to action -->
-  <div class="jumbotron">
-    <div class="container">
-      <img width="180" height="180" src="https://cdn2.iconfinder.com/data/icons/people-80/96/Picture1-512.png" class="rounded float-left" alt="...">
+  <div class="jumbotron jumbotron-fluid jumbotron-with-background">
+    <div class="container mw-100 shadow-lg rounded well">
+      <div class="container">
+        <img width="140" height="150" src="https://www.sprayandwash.co.nz/wp-content/uploads/2018/12/person-icon-white-png-1.png" class="rounded float-left ml-4 mt-4 mr-4" alt="...">
 
-      <h1 class="display-3">Nome Usuário</h1>
-      <h2 class="display-5">Nick Usuário</h2>
-      <h3 class="display-9">Email Usuário</h3>
-      <p><a class="btn btn-primary btn-lg ml-5" href="<?= $indexPHP ?>/pages/usuario/update.php" role="button">Editar »</a></p>
-
+        <h1 class="display-3 text-white mt-5"><b> Nome - </b></h1>
+        <h2 class="display-5 text-white"><b>Nick - </b></h2>
+        <h3 class="display-9 text-white"><b>Email - </b></h3>
+        <p><a class="btn btn-primary btn-lg ml-5 mb-4 mt-4" href="<?= $indexPHP ?>/pages/usuario/update.php" role="button">Editar »</a></p>
+      </div>
     </div>
   </div>
+
+  <!-- Principal jumbotron, para a principal mensagem de marketing ou call to action -->
 
   <div class="container marketing">
 

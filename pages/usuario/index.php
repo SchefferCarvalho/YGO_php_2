@@ -1,29 +1,30 @@
 <?php include('../../config.php'); ?>
-<?php include('../../inc/header.php'); 
+<?php include('../../inc/header.php');
 verificarAutenticacao($indexPHP);
 
 ?>
 
 <section class="container mt-3">
 
-	<?php 
+	<?php
 
 	$url = $indexAPI . '/tb_usuario';
 	$usuarios = GetAPI($url);
 	?>
-	<th>
-		<b>
-			<font size="5">
+	<table class="table table-striped table-bordered rounded">
+		<h3 class="rounded bg-dark text-white text-center">
+			<!-- <font size="5"> -->
+			<b>
 				Usuários
-			</font>
-		</b>
-	</th>
-	<table class="table">
-		<thead>
+			</b>
+			<!-- </font> -->
+		</h3>
+		<thead class="thead-dark">
 			<tr>
 				<th scope="col">Email</th>
 				<th scope="col">Nome da Usuário</th>
 				<th scope="col">Nick da Usuário</th>
+				<th></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -35,7 +36,7 @@ verificarAutenticacao($indexPHP);
 						<td><?= $usuario['email_usua'] ?></td>
 						<td><?= $usuario['nme_usua'] ?></td>
 						<td><?= $usuario['nicknme_usua'] ?></td>
-						<td><a href=""><button type="button" class="btn btn-danger my-0 my-sm-0 btn-sm" style="margin-right: -60px;">Deletar</button></a><td>
+						<td class="p-2"><a href="<?= $indexPHP . '/pages/deck/delete.php?id=' . $deck['idt_deck'] ?>"><button type="button" class="btn btn-danger btn-sm btn-block" style="margin-right: 0px;">Deletar</button></a></td>
 
 					</tr>
 				<?php endforeach;
