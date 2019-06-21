@@ -25,6 +25,7 @@ verificarAutenticacao($indexPHP);
 				<th scope="col">Nome da Usuário</th>
 				<th scope="col">Nick da Usuário</th>
 				<th></th>
+				<th></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -36,8 +37,8 @@ verificarAutenticacao($indexPHP);
 						<td><?= $usuario['email_usua'] ?></td>
 						<td><?= $usuario['nme_usua'] ?></td>
 						<td><?= $usuario['nicknme_usua'] ?></td>
+						<td class="p-2"><a href="<?= $indexPHP ?>/pages/usuario/update.php"><button type="button" class="btn btn-warning btn-sm btn-block" style="margin-right: 0px;">Editar</button></a></td>
 						<td class="p-2"><a href="<?= $indexPHP . '/pages/deck/delete.php?id=' . $deck['idt_deck'] ?>"><button type="button" class="btn btn-danger btn-sm btn-block" style="margin-right: 0px;">Deletar</button></a></td>
-
 					</tr>
 				<?php endforeach;
 		endif; ?>

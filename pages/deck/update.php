@@ -21,8 +21,6 @@ curl_close($curl);
 $cartas = json_decode($cartas, true)
 ?>
 
-
-
 <div class="container">
     <div class="form-group row mt-2">
 
@@ -137,7 +135,7 @@ $cartas = json_decode($cartas, true)
     <!-- <form class="card text-left"> -->
     <div class="form-row">
         <div class="form-group col-md-3">
-            <form class="card text-center">
+            <form class="card text-center bg-dark text-white">
                 <label for="inputCity"><b>Carta</b></label>
             </form>
             <!-- <input type="text" class="form-control" id="inputCity"> -->
@@ -160,20 +158,20 @@ $cartas = json_decode($cartas, true)
             </form>
         </div>
         <div class="form-group col-md-5">
-            <form class="card text-center">
+            <form class="card text-center bg-dark text-white">
                 <label for="inputState"><b>Deck</b></label>
             </form>
             <form class="card text-left">
-                <table class="table">
+                <table class="table table-striped rounded">
                     <tbody>
                         <?php
                         $num = 1;
                         if ($cartas != '') :
                             foreach ($cartas as $carta) : ?>
                                 <tr>
-                                    <td><?= $num++ ?></td>
+                                    <td class="text-center"><?= $num++ ?></td>
                                     <td><?= $carta['nme_carta'] ?></td>
-                                    <td><?= tipoCarta($carta['idt_tipo_carta']) ?></td>
+                                    <td class="text-center"><?= tipoCarta($carta['idt_tipo_carta']) ?></td>
                                     <!-- <td><input style="width:50px;" type="number" min="0" max="3"></td> -->
                                 </tr>
                             <?php endforeach;
@@ -183,9 +181,9 @@ $cartas = json_decode($cartas, true)
             </form>
         </div>
         <div class="form-group col-md-4">
-            <form class="card text-center"><label for="inputZip"><b>Lista de Cartas</b></label></form>
+            <form class="card text-center bg-dark text-white"><label for="inputZip"><b>Lista de Cartas</b></label></form>
             <form class="card text-left">
-                <table class="table">
+                <table class="table table-striped rounded">
                     <tbody>
                         <?php
 
