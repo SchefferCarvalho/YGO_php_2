@@ -14,22 +14,13 @@ function verificarAutenticacao($indexPHP){
 	}
 }
 
-function tipoCarta($id){
+function Carta($id){
 	switch ($id) {
-		case '1':
-			return 'Monstro';
+		case null:
+			return ' - ';
 			break;
-		
-		case '2':
-			return 'Mágica';
-			break;
-
-		case '3':
-			return 'Armadilha';
-			break;
-
 		default:
-			return 'Não Identificado';
+			return $id;
 			break;
 	}
 }
@@ -101,5 +92,3 @@ function PostAPI($url, $dados){
      $result = curl_exec($ch);
 
 }
-
-?>

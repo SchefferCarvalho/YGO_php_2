@@ -32,9 +32,16 @@
                         <label class="input-group-text" for="inputGroupSelect01">Tipo</label>
                     </div>
                     <select class="custom-select" id="inputGroupSelect01">
-                        <option value="1">Monstro</option>
-                        <option value="2">Magica</option>
-                        <option value="3">Armadilha</option>
+                        <option value="1">...</option>
+                        <option value="2">Normal Monster</option>
+                        <option value="3">Effect Monster</option>
+                        <option value="4">Ritual Monster</option>
+                        <option value="5">Spell Card</option>
+                        <option value="6">Trap Card</option>
+                        <option value="7">Fusion Monster</option>
+                        <option value="8">Ritual Effect Monster</option>
+                        <option value="9">Union Effect Monster</option>
+                        <option value="10"> Flip Effect Monster</option>
                     </select>
                 </div>
             </div>
@@ -149,10 +156,10 @@
                     <tr>
                         <td><?= $num++ ?></td>
                         <td><?= $carta['nme_carta'] ?></td>
-                        <td class="text-center"><?= tipoCarta($carta['idt_tipo_carta']) ?></td>
-                        <td class="text-center"><?= $carta['level_carta'] ?></td>
-                        <td class="text-center"><?= $carta['ataque_carta'] ?></td>
-                        <td class="text-center"><?= $carta['defesa_carta'] ?></td>
+                        <td class="text-center"><?= Carta($carta['tipo_carta']) ?></td>
+                        <td class="text-center"><?= Carta($carta['level_carta']) ?></td>
+                        <td class="text-center"><?= Carta($carta['ataque_carta']) ?></td>
+                        <td class="text-center"><?= Carta($carta['defesa_carta']) ?></td>
                         <!-- <td><input style="width:50px;" type="number" min="0" max="3"></td> -->
                     </tr>
                 <?php endforeach;
