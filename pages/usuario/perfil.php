@@ -33,9 +33,9 @@ verificarAutenticacao($indexPHP);
       <div class="container">
         <img width="140" height="150" src="https://www.sprayandwash.co.nz/wp-content/uploads/2018/12/person-icon-white-png-1.png" class="rounded float-left ml-4 mt-4 mr-4" alt="...">
 
-        <h1 class="display-3 text-white mt-5"><b> Nome - </b></h1>
-        <h2 class="display-5 text-white"><b>Nick - </b></h2>
-        <h3 class="display-9 text-white"><b>Email - </b></h3>
+        <h1 class="display-3 text-white mt-5"><b> Nome - <?=$_SESSION['usuario']['nme_usua'] ?></b></h1>
+        <h2 class="display-5 text-white"><b>Nick - <?=$_SESSION['usuario']['nicknme_usua'] ?></b></h2>
+        <h3 class="display-9 text-white"><b>Email - <?=$_SESSION['usuario']['email_usua'] ?></b></h3>
         <p><a class="btn btn-primary btn-lg ml-5 mb-4 mt-4" href="<?= $indexPHP ?>/pages/usuario/update.php" role="button">Editar »</a></p>
       </div>
     </div>
@@ -46,28 +46,23 @@ verificarAutenticacao($indexPHP);
   <div class="container marketing">
 
     <!-- Three columns of text below the carousel -->
+
     <div class="row">
+    <?php 	
+    $url = $indexAPI . '/tb_deck/'.$_SESSION['usuario']['idt_usuario'];
+    $decks = GetAPI($url);
+    if ($decks != '') :
+      foreach ($decks as $deck) : ?>
       <div class="col-lg-4">
         <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140">
           <img width="140" height="140" src="https://static.thenounproject.com/png/219525-200.png" class="rounded float-left" alt="...">
         </svg>
-        <h2>Deck 1</h2>
-        <p><a class="btn btn-secondary" href="<?= $indexPHP ?>/pages/deck/update.php" role="button">Ver detalhes »</a></p>
+        <h2><?= $deck['nme_deck'] ?></h2>
+        <p><a class="btn btn-secondary" href="<?= $indexPHP ?>/pages/deck/update.php?id=' . $deck['idt_deck'] ?>" role="button">Ver detalhes »</a></p>
       </div><!-- /.col-lg-4 -->
-      <div class="col-lg-4">
-        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140">
-          <img width="140" height="140" src="https://static.thenounproject.com/png/219525-200.png" class="rounded float-left" alt="...">
-        </svg>
-        <h2>Deck 2</h2>
-        <p><a class="btn btn-secondary" href="<?= $indexPHP ?>/pages/deck/update.php" role="button">Ver detalhes »</a></p>
-      </div><!-- /.col-lg-4 -->
-      <div class="col-lg-4">
-        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140">
-          <img width="140" height="140" src="https://static.thenounproject.com/png/219525-200.png" class="rounded float-left" alt="...">
-        </svg>
-        <h2>Deck 3</h2>
-        <p><a class="btn btn-secondary" href="<?= $indexPHP ?>/pages/deck/update.php" role="button">Ver detalhes »</a></p>
-      </div><!-- /.col-lg-4 -->
+      <?php endforeach;
+    endif; ?>
+
     </div><!-- /.row -->
   </div>
 

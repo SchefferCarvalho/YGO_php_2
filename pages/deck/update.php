@@ -1,24 +1,11 @@
-<?php include('../../config.php'); ?>
-<?php include('../../inc/header.php'); ?>
+<?php 
+include('../../config.php');
+include('../../inc/header.php');
 
-<?php $curl = curl_init();
+if(isset($_GET['id'])){
+    $idDeck = $_GET['id'];
+}
 
-curl_setopt_array($curl, array(
-    CURLOPT_URL => $indexAPI . '/tb_carta',
-    CURLOPT_RETURNTRANSFER => true,
-    CURLOPT_TIMEOUT => 30,
-    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-    CURLOPT_CUSTOMREQUEST => "GET",
-    CURLOPT_HTTPHEADER => array(
-        "cache-control: no-cache"
-    ),
-));
-
-$cartas = curl_exec($curl);
-$err = curl_error($curl);
-curl_close($curl);
-
-$cartas = json_decode($cartas, true)
 ?>
 
 <div class="container">
@@ -145,26 +132,35 @@ $cartas = json_decode($cartas, true)
             <form class="card text-center bg-dark text-white">
                 <label for="inputCity"><b>Carta</b></label>
             </form>
+            <?php
+                $urlCarta = $indexAPI . '/tb_carta/'.rand(1, 87);
+                $carta = GetAPI($urlCarta);
+                $carta = $carta[0];
+            ?>
             <!-- <input type="text" class="form-control" id="inputCity"> -->
             <form class="card text-left">
-                <div class="card">
-                    <img src="https://storage.googleapis.com/ygoprodeck.com/pics/89631139.jpg" class="card-img-top" alt="...">
+                <div class="card" id="conteudo">
+                    <img src="<?=$carta['imagem_carta'] ?>" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title">Nome da Carta</h5>
+                        <h5 class="card-title"><?=$carta['nme_carta'] ?></h5>
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Categoria - (Mosntro/Magina/Armadilha)</li>
-                            <li class="list-group-item">Tipo - (Zumbi/Continua)</li>
-                            <li class="list-group-item">Atributo - (terra)</li>
-                            <li class="list-group-item">Level - </li>
-                            <li class="list-group-item">Ataque - </li>
-                            <li class="list-group-item">Defesa - </li>
+                            <li class="list-group-item">Tipo - <?=$carta['tipo_carta'] ?></li>
+                            <li class="list-group-item">Raça - <?=$carta['raca_carta'] ?></li>
+                            <li class="list-group-item">Atributo - <?=$carta['atributo_carta'] ?></li>
+                            <li class="list-group-item">Level - <?=$carta['level_carta'] ?></li>
+                            <li class="list-group-item">Ataque - <?=$carta['ataque_carta'] ?></li>
+                            <li class="list-group-item">Defesa - <?=$carta['defesa_carta'] ?></li>
                         </ul>
-                        <p class="card-text mt-3">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <p class="card-text mt-3"><?=$carta['desc_carta'] ?></p>
                     </div>
                 </div>
             </form>
         </div>
         <div class="form-group col-md-5">
+            <?php
+            $url = $indexAPI . '/tb_deck_lista/'.$idDeck;
+            $cartas = GetAPI($url);
+            ?>
             <form class="card text-center bg-dark text-white">
                 <label for="inputState"><b>Deck</b></label>
             </form>
@@ -177,7 +173,7 @@ $cartas = json_decode($cartas, true)
                             foreach ($cartas as $carta) : ?>
                                 <tr>
                                     <td class="text-center"><?= $num++ ?></td>
-                                    <td><?= $carta['nme_carta'] ?></td>
+                                    <td class="lista-carta" id="<?= $carta['idt_carta']?>"><?= $carta['nme_carta'] ?></td>
                                     <td class="text-center"><?= Carta($carta['tipo_carta']) ?></td>
                                     <!-- <td><input style="width:50px;" type="number" min="0" max="3"></td> -->
                                 </tr>
@@ -187,6 +183,11 @@ $cartas = json_decode($cartas, true)
                 </table>
             </form>
         </div>
+
+        <?php
+            $url = $indexAPI . '/tb_carta';
+            $cartas = GetAPI($url);
+        ?>
         <div class="form-group col-md-4">
             <form class="card text-center bg-dark text-white"><label for="inputZip"><b>Lista de Cartas</b></label></form>
             <form class="card text-left">
@@ -197,7 +198,7 @@ $cartas = json_decode($cartas, true)
                         if ($cartas != '') :
                             foreach ($cartas as $carta) : ?>
                                 <tr>
-                                    <td><?= $carta['nme_carta'] ?></td>
+                                    <a href="#"><td class="lista-carta" id="<?= $carta['idt_carta'] ?>"><?= $carta['nme_carta'] ?></td></a>
                                     <!-- <td><input style="width:50px;" type="number" min="0" max="3"></td> -->
                                 </tr>
                             <?php endforeach;
@@ -207,15 +208,27 @@ $cartas = json_decode($cartas, true)
             </form>
             <!-- <input type="text" class="form-control" id="inputZip"> -->
         </div>
-        <!-- <div class="">
-            <button type="submit" class="btn btn-primary">Aplicar</button>
-            <button type="button" class="btn btn-danger">Cancelar</button>
-        </div> -->
     </div>
-    <!-- </form> -->
+
 </section>
 
 <!-- </form> -->
 <!-- </section> -->
+<script src="<?=$indexPHP?>/biblioteca/jquery.min.js"></script>
+
+<script type="text/javascript">
+
+$('.lista-carta').click(function(){
+    id = this.id;
+    $.ajax({
+      url: 'busca-carta.php',
+      type: 'POST', // Send post data
+      data: 'id='+id,
+      success: function(result){
+        $('#conteudo').html(result);
+      }
+    });
+})
+</script>
 
 <?php include('../../inc/footer.php'); ?>

@@ -8,10 +8,30 @@ function estaLogado(){
 	}
 }
 
+function ehAdmin(){
+	if (!isset($_SESSION['usuario']['adm'])) {
+        return false;
+	} else {
+        if ($_SESSION['usuario']['adm'] == 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
+
 function verificarAutenticacao($indexPHP){
 	if (!isset($_SESSION['autenticado'])) {
 		header('Location: '.$indexPHP.'?login=fail');
 	}
+}
+
+function verificarAdmin($indexPHP){
+    $admin = ehAdmin();
+
+    if($admin == false){
+        header('Location: '.$indexPHP.'/pages/painel/index.php');
+    }   
 }
 
 function Carta($id){
@@ -75,11 +95,7 @@ function DeleteAPI($url, $id){
 function PostAPI($url, $dados){
 
     $payload = json_encode($dados);
-    var_dump($url);
-
-     var_dump($payload);
-
-
+    var_dump($dados);
      $ch = curl_init($url);                                                                      
      curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
 

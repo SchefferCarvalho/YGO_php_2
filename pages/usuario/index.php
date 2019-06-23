@@ -1,6 +1,7 @@
 <?php include('../../config.php'); ?>
 <?php include('../../inc/header.php');
 verificarAutenticacao($indexPHP);
+verificarAdmin($indexPHP);
 
 ?>
 
@@ -38,7 +39,7 @@ verificarAutenticacao($indexPHP);
 						<td><?= $usuario['nme_usua'] ?></td>
 						<td><?= $usuario['nicknme_usua'] ?></td>
 						<td class="p-2"><a href="<?= $indexPHP ?>/pages/usuario/update.php"><button type="button" class="btn btn-warning btn-sm btn-block" style="margin-right: 0px;">Editar</button></a></td>
-						<td class="p-2"><a href="<?= $indexPHP . '/pages/deck/delete.php?id=' . $deck['idt_deck'] ?>"><button type="button" class="btn btn-danger btn-sm btn-block" style="margin-right: 0px;">Deletar</button></a></td>
+						<td class="p-2"><a href="<?= $indexPHP.'/pages/usuario/delete.php?id='.$usuario['idt_usuario'] ?>"><button type="button" class="btn btn-danger btn-sm btn-block" style="margin-right: 0px;">Deletar</button></a></td>
 					</tr>
 				<?php endforeach;
 		endif; ?>

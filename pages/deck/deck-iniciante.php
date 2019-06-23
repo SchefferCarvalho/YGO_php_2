@@ -4,7 +4,7 @@
 <section class="container mt-3">
 	<?php
 
-	$url = $indexAPI . '/tb_deck';
+	$url = $indexAPI . '/tb_deck_iniciante';
 
 	$decks = GetAPI($url);
 	?>
@@ -20,6 +20,7 @@
 		<thead class="thead-dark">
 			<tr>
 				<th scope="col">Nome do Deck</th>
+				<th colspan="2"></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -29,6 +30,7 @@
 				foreach ($decks as $deck) : ?>
 					<tr>
 						<td><?= $deck['nme_deck'] ?></td>
+						<td><a href="<?= $indexPHP . '/pages/deck/delete.php?id=' . $deck['idt_deck'] ?>"><button type="button" class="btn btn-warning btn-sm btn-block" style="margin-right: -80px;">Editar</button></a></td>
 					</tr>
 				<?php endforeach;
 		endif; ?>

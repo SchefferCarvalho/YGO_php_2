@@ -23,14 +23,19 @@
     background-position: center;
     /* background-repeat: no-repeat; */
     /* background-size: cover; */
+    background-color: rgba(0, 0, 0, 0.7);
+
   }
 
   .jumbotron {
     margin-bottom: -1rem;
+    height: 100%;
+    width: 100%;
   }
 
   .well {
     background-color: rgba(0, 0, 0, 0.7);
+
   }
 
   .form-signin {
@@ -60,6 +65,8 @@
     border-top-right-radius: 0;
   }
 </style>
+<body>
+  
 
 <!-- Principal jumbotron, para a principal mensagem de marketing ou call to action -->
 <div class="jumbotron jumbotron-fluid jumbotron-with-background">
@@ -69,12 +76,14 @@
         <form class="form-signin" method="POST" action="<?= $indexPHP ?>/login.php">
           <img class="mb-4" src="https://apprecs.org/gp/images/app-icons/300/1f/com.logickllc.yugipedia.android.jpg" alt="" width="72" height="72">
           <h1 class="h3 mb-3 font-weight-normal text-white">Por favor faça seu login</h1>
+          <?php if(isset($_GET['login'])){echo '<div class="alert alert-danger" role="alert">senha ou usuário incorreto!</div>';} ?>
           <label for="inputEmail" class="sr-only">Email address</label>
           <input name="email" type="email" id="inputEmail" class="form-control" placeholder="Email" required="" autofocus="">
           <label for="inputPassword" class="sr-only">Password</label>
           <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Senha" required="">
           <div class="checkbox mb-3">
           </div>
+          
           <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
           <h2 class="h6 mt-2 mb-3 font-weight-normal text-white">Caso não tenha uma conta clique em:
             <a href="<?= $indexPHP ?>/pages/usuario/create.php" class="bbtn btn-link" role="button" aria-pressed="true">Criar Conta</a>
@@ -85,5 +94,4 @@
     </div>
   </div>
 </div>
-
-<?php include('./inc/footer.php'); ?>
+</body>

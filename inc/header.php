@@ -40,12 +40,11 @@
 					</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 						<a class="dropdown-item" href="<?= $indexPHP ?>/pages/deck/deck-iniciante.php">Decks Iniciante</a>
-						<?php if (estaLogado()) { ?>
+							<?php if (estaLogado()) { ?>
 							<a class="dropdown-item" href="<?= $indexPHP ?>/pages/deck/index.php">Listar Deck</a>
 							<a class="dropdown-item" href="<?= $indexPHP ?>/pages/deck/create.php">Criar Deck</a>
 							<a class="dropdown-item" href="<?= $indexPHP ?>/pages/deck/update.php">Editar Deck</a>
-
-						<?php } ?>
+							<?php } ?>
 					</div>
 					<div class="">
 
@@ -56,11 +55,13 @@
 							Usuário
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<?php if(ehAdmin()){ ?>
 							<a class="dropdown-item" href="<?= $indexPHP ?>/pages/usuario/index.php">Listar Usuários</a>
 							<a class="dropdown-item" href="<?= $indexPHP ?>/pages/usuario/create.php">Cadastrar usuário</a>
+							<?php } ?>
 							<a class="dropdown-item" href="<?= $indexPHP ?>/pages/usuario/perfil.php">Perfil do Usuário</a>
 						</div>
-					</li>
+					</li>					
 				<?php } ?>
 			</ul>
 

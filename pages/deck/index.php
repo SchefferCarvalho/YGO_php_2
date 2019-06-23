@@ -7,7 +7,7 @@ verificarAutenticacao($indexPHP);
 <section class="container mt-3">
 	<?php
 
-	$url = $indexAPI . '/tb_deck';
+	$url = $indexAPI . '/tb_deck/'.$_SESSION['usuario']['idt_usuario'];
 
 	$decks = GetAPI($url);
 
@@ -23,8 +23,9 @@ verificarAutenticacao($indexPHP);
 		</h3>
 		<thead class="thead-dark">
 			<tr>
-				<th scope="col">Nome do Deck</th>
-				<th></th>
+				<th>Nome do Deck</th>
+				<th colspan="2"></th>
+				
 			</tr>
 		</thead>
 		<tbody>
@@ -34,10 +35,12 @@ verificarAutenticacao($indexPHP);
 				foreach ($decks as $deck) : ?>
 					<tr>
 						<td><?= $deck['nme_deck'] ?></td>
-						<td class="p-2"><a href="<?= $indexPHP . '/pages/deck/delete.php?id=' . $deck['idt_deck'] ?>"><button type="button" class="btn btn-danger btn-sm btn-block" style="margin-right: -80px;">Deletar</button></a></td>
+						<td><a href="<?= $indexPHP . '/pages/deck/update.php?id=' . $deck['idt_deck'] ?>"><button type="button" class="btn btn-warning btn-sm btn-block" style="margin-right: -80px;">Editar</button></a></td>
+
+						<td><a href="<?= $indexPHP . '/pages/deck/delete.php?id=' . $deck['idt_deck'] ?>"><button type="button" class="btn btn-danger btn-sm btn-block" style="margin-right: -80px;">Deletar</button></a></td>
 					</tr>
 				<?php endforeach;
-		endif; ?>
+			endif; ?>
 
 		</tbody>
 	</table>

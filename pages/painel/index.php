@@ -46,6 +46,7 @@
         <p>Possível visualizar as cartas presentes no jogo. </p>
         <p><a class="btn btn-secondary" href="<?= $indexPHP ?>/pages/carta/index.php" role="button">Ver detalhes »</a></p>
       </div> -->
+
        <div class="col-md-4">
          <h2>Favoritos</h2>
          <p>Veja as cartas mais favoritadas e preferidas para montar os deck mais incríveis. </p>
