@@ -9,7 +9,7 @@ if(isset($_GET['id'])){
 ?>
 
 <div class="container">
-    <div class="form-group row mt-2">
+    <!-- <div class="form-group row mt-2">
 
         <div class="col-sm-6">
             <div class="input-group mb-3">
@@ -109,11 +109,11 @@ if(isset($_GET['id'])){
                 </label>
             </div>
         </div>
-    </div>
+    </div> -->
 
-    <div class="form-group row">
+    <div class="form-group row mt-2">
         <div class="col-sm-9">
-            <button type="button" class="btn btn-primary">Buscar</button>
+            <!-- <button type="button" class="btn btn-primary">Buscar</button> -->
         </div>
         <div class="col-sm-2">
             <button type="button" class="btn btn-success">Adicionar</button>
@@ -198,7 +198,7 @@ if(isset($_GET['id'])){
                         if ($cartas != '') :
                             foreach ($cartas as $carta) : ?>
                                 <tr>
-                                    <a href="#"><td class="lista-carta" id="<?= $carta['idt_carta'] ?>"><?= $carta['nme_carta'] ?></td></a>
+                                    <a href="#"><td class="lista-carta " id="<?= $carta['idt_carta'] ?>"><?= $carta['nme_carta'] ?></td></a>
                                     <!-- <td><input style="width:50px;" type="number" min="0" max="3"></td> -->
                                 </tr>
                             <?php endforeach;

@@ -30,7 +30,8 @@
 				foreach ($decks as $deck) : ?>
 					<tr>
 						<td><?= $deck['nme_deck'] ?></td>
-						<td><a href="<?= $indexPHP . '/pages/deck/delete.php?id=' . $deck['idt_deck'] ?>"><button type="button" class="btn btn-warning btn-sm btn-block" style="margin-right: -80px;">Editar</button></a></td>
+						<td><a href="<?= $indexPHP . '/pages/deck/delete.php?id=' . $deck['idt_deck'] ?>"><button type="button" class="btn btn-warning btn-sm btn-block" style="margin-right: -80px;">Visualizar
+					</button></a></td>
 					</tr>
 				<?php endforeach;
 		endif; ?>

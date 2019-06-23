@@ -11,7 +11,7 @@
 
     ?>
 
-    <div class="container">
+    <!-- <div class="container">
         <div class="form-group row mt-2">
 
             <div class="col-sm-6">
@@ -111,7 +111,7 @@
                 <button type="button" class="btn btn-primary">Buscar</button>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <table class="table table-striped table-bordered rounded">
         <h2 class="rounded bg-dark text-white text-center">
@@ -136,17 +136,23 @@
             <?php
             $num = 1;
             if ($cartas != '') :
-                foreach ($cartas as $carta) : ?>
-                    <tr>
-                        <td><?= $num++ ?></td>
-                        <td><?= $carta['nme_carta'] ?></td>
-                        <td class="text-center"><?= Carta($carta['tipo_carta']) ?></td>
-                        <td class="text-center"><?= Carta($carta['level_carta']) ?></td>
-                        <td class="text-center"><?= Carta($carta['ataque_carta']) ?></td>
-                        <td class="text-center"><?= Carta($carta['defesa_carta']) ?></td>
-                        <!-- <td><input style="width:50px;" type="number" min="0" max="3"></td> -->
-                    </tr>
-                <?php endforeach;
+                foreach ($cartas as $carta) :
+                    if (
+                        $carta['idt_carta'] == 1 || $carta['idt_carta'] == 9 || $carta['idt_carta'] == 45 ||
+                        $carta['idt_carta'] == 46 || $carta['idt_carta'] == 86 || $carta['idt_carta'] == 87 ||
+                        $carta['idt_carta'] == 36 || $carta['idt_carta'] == 37 || $carta['idt_carta'] == 38
+                    ) :      ?>
+                        <tr>
+                            <td><?= $num++ ?></td>
+                            <td><?= $carta['nme_carta'] ?></td>
+                            <td class="text-center"><?= Carta($carta['tipo_carta']) ?></td>
+                            <td class="text-center"><?= Carta($carta['level_carta']) ?></td>
+                            <td class="text-center"><?= Carta($carta['ataque_carta']) ?></td>
+                            <td class="text-center"><?= Carta($carta['defesa_carta']) ?></td>
+                            <!-- <td><input style="width:50px;" type="number" min="0" max="3"></td> -->
+                        </tr>
+                    <?php endif;
+            endforeach;
         endif; ?>
 
         </tbody>

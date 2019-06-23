@@ -21,4 +21,3 @@ $carta = $carta[0];
     </ul>
     <p class="card-text mt-3"><?=$carta['desc_carta'] ?></p>
 </div>
-?>

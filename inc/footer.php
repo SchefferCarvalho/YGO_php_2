@@ -19,6 +19,8 @@
 			nathaliamagi@sempreceub.com -
 			carolinecarnauba@sempreceub.com -
 			gs.silva@sempreceub.com
+			<br>
+			.
 		</div>
 </footer>
 

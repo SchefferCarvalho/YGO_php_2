@@ -36,7 +36,8 @@ verificarAutenticacao($indexPHP);
         <h1 class="display-3 text-white mt-5"><b> Nome - <?=$_SESSION['usuario']['nme_usua'] ?></b></h1>
         <h2 class="display-5 text-white"><b>Nick - <?=$_SESSION['usuario']['nicknme_usua'] ?></b></h2>
         <h3 class="display-9 text-white"><b>Email - <?=$_SESSION['usuario']['email_usua'] ?></b></h3>
-        <p><a class="btn btn-primary btn-lg ml-5 mb-4 mt-4" href="<?= $indexPHP ?>/pages/usuario/update.php" role="button">Editar »</a></p>
+        <!-- <p><a class="btn btn-primary btn-lg ml-5 mb-4 mt-4" href="<?= $indexPHP ?>/pages/usuario/update.php" role="button">Editar »</a></p> -->
+        <h3 class="ml-5 mb-4 mt-4">.</h3>
       </div>
     </div>
   </div>

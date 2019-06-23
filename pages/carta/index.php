@@ -2,7 +2,7 @@
 include_once('../../config.php');
 include('../../inc/header.php');
 
-verificarAutenticacao($indexPHP);
+// verificarAutenticacao($indexPHP);
 ?>
 
 <section class="container mt-3">
@@ -13,7 +13,7 @@ verificarAutenticacao($indexPHP);
 
 	?>
 
-	<div class="container">
+	<!-- <div class="container">
 		<div class="form-group row mt-2">
 
 			<div class="col-sm-6">
@@ -120,7 +120,7 @@ verificarAutenticacao($indexPHP);
 				<button type="button" class="btn btn-primary">Buscar</button>
 			</div>
 		</div>
-	</div>
+	</div> -->
 
 	<table class="table table-striped table-bordered rounded">
 		<h2 class="rounded bg-dark text-white text-center">
@@ -138,7 +138,7 @@ verificarAutenticacao($indexPHP);
 				<th scope="col">Level da Carta</th>
 				<th scope="col">Ataque</th>
 				<th scope="col">Defesa</th>
-				<th scope="col">Quantidade de cartas</th>
+				<!-- <th scope="col">Quantidade de cartas</th> -->
 			</tr>
 		</thead>
 		<tbody>
@@ -152,7 +152,7 @@ verificarAutenticacao($indexPHP);
 						<td class="text-center"><?= Carta($carta['level_carta']) ?></td>
 						<td class="text-center"><?= Carta($carta['ataque_carta']) ?></td>
 						<td class="text-center"><?= Carta($carta['defesa_carta']) ?></td>
-						<td class="text-center"><input class="text-center" style="width:120px;" type="number" min="0" max="3"></td>
+						<!-- <td class="text-center"><input class="text-center" style="width:120px;" type="number" min="0" max="3"></td> -->
 					</tr>
 				<?php endforeach;
 		endif; ?>
