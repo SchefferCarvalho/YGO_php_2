@@ -20,7 +20,7 @@ if ($acao == 1) {
 } elseif($acao == 2){
 	$url = $indexAPI . '/tb_deck_carta/'.$deck.'/'.$carta;
 	$_SESSION['carta-selecionada'] = $carta;
-	$remover = DeleteAPI($url);
+	$remover = DeleteAPI2($url);
 }	
 
 // echo $carta;

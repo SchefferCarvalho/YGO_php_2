@@ -8,11 +8,13 @@ if(isset($_GET['id'])){
     $url = $indexAPI . '/tb_deck/'.$_SESSION['usuario']['idt_usuario'];
     $decks = GetAPI($url);
 
-    if(array_search($idDeck, array_column($decks, 'idt_deck'), false)){
+    if(array_search($idDeck, array_column($decks, 'idt_deck'), false) !== false){
         $deckEhDoUsuario = true;
     } else{
         $deckEhDoUsuario = false;
     }
+
+    // echo $deckEhDoUsuario;
 }
 
 ?>
@@ -212,7 +214,7 @@ if(isset($_GET['id'])){
 
                         if ($ListaCartas != '') :
                             foreach ($ListaCartas as $carta) :
-                                if (!array_search($carta['idt_carta'], array_column($cartasDeck, 'idt_carta'), false)):  ?>
+                                if (array_search($carta['idt_carta'], array_column($cartasDeck, 'idt_carta'), false) === false):  ?>
                                 <tr>
                                     <a href="#"><td class="lista-carta adiciona-carta" id="<?= $carta['idt_carta'] ?>"><?= $carta['nme_carta'] ?></td></a>
                                     <!-- <td><input style="width:50px;" type="number" min="0" max="3"></td> -->
