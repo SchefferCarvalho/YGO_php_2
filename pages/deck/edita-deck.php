@@ -22,9 +22,4 @@ if ($acao == 1) {
 	$_SESSION['carta-selecionada'] = $carta;
 	$remover = DeleteAPI2($url);
 }	
-
-// echo $carta;
-// echo $deck;
-// echo $acao;
-
 ?>

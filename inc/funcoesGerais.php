@@ -117,7 +117,7 @@ function DeleteAPI2($url){
 function PostAPI($url, $dados){
 
     $payload = json_encode($dados);
-    // var_dump($dados);
+ 
      $ch = curl_init($url);                                                                      
      curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
 
