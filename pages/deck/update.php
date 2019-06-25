@@ -4,11 +4,20 @@ include('../../inc/header.php');
 
 if(isset($_GET['id'])){
     $idDeck = $_GET['id'];
+
+    $url = $indexAPI . '/tb_deck/'.$_SESSION['usuario']['idt_usuario'];
+    $decks = GetAPI($url);
+
+    if(array_search($idDeck, array_column($decks, 'idt_deck'), false)){
+        $deckEhDoUsuario = true;
+    } else{
+        $deckEhDoUsuario = false;
+    }
 }
 
 ?>
 
-<div class="container">
+<!-- <div class="container"> -->
     <!-- <div class="form-group row mt-2">
 
         <div class="col-sm-6">
@@ -111,9 +120,9 @@ if(isset($_GET['id'])){
         </div>
     </div> -->
 
-    <div class="form-group row mt-2">
+<!--     <div class="form-group row mt-2">
         <div class="col-sm-9">
-            <!-- <button type="button" class="btn btn-primary">Buscar</button> -->
+            <button type="button" class="btn btn-primary">Buscar</button>
         </div>
         <div class="col-sm-2">
             <button type="button" class="btn btn-success">Adicionar</button>
@@ -122,8 +131,8 @@ if(isset($_GET['id'])){
             <button type="button" class="btn btn-danger">Remover</button>
         </div>
 
-    </div>
-</div>
+    </div> -->
+<!-- </div> -->
 
 <section class="mt-0 w-100 p-3">
     <!-- <form class="card text-left"> -->
@@ -133,7 +142,12 @@ if(isset($_GET['id'])){
                 <label for="inputCity"><b>Carta</b></label>
             </form>
             <?php
-                $urlCarta = $indexAPI . '/tb_carta/'.rand(1, 87);
+                if(isset($_SESSION['carta-selecionada'])){
+                    $cartaExibida = $_SESSION['carta-selecionada'];
+                } else {
+                    $cartaExibida = rand(1, 87);
+                }
+                $urlCarta = $indexAPI . '/tb_carta/'.$cartaExibida;
                 $carta = GetAPI($urlCarta);
                 $carta = $carta[0];
             ?>
@@ -159,7 +173,8 @@ if(isset($_GET['id'])){
         <div class="form-group col-md-5">
             <?php
             $url = $indexAPI . '/tb_deck_lista/'.$idDeck;
-            $cartas = GetAPI($url);
+            $cartasDeck = GetAPI($url);
+
             ?>
             <form class="card text-center bg-dark text-white">
                 <label for="inputState"><b>Deck</b></label>
@@ -169,11 +184,11 @@ if(isset($_GET['id'])){
                     <tbody>
                         <?php
                         $num = 1;
-                        if ($cartas != '') :
-                            foreach ($cartas as $carta) : ?>
-                                <tr>
+                        if ($cartasDeck != '') :
+                            foreach ($cartasDeck as $carta) : ?>
+                                <tr class="deck <?=($carta['deck_iniciante'] == 1)?'iniciante':''?>">
                                     <td class="text-center"><?= $num++ ?></td>
-                                    <td class="lista-carta" id="<?= $carta['idt_carta']?>"><?= $carta['nme_carta'] ?></td>
+                                    <td class="lista-carta remove-carta" id="<?= $carta['idt_carta']?>"><?= $carta['nme_carta'] ?></td>
                                     <td class="text-center"><?= Carta($carta['tipo_carta']) ?></td>
                                     <!-- <td><input style="width:50px;" type="number" min="0" max="3"></td> -->
                                 </tr>
@@ -186,7 +201,7 @@ if(isset($_GET['id'])){
 
         <?php
             $url = $indexAPI . '/tb_carta';
-            $cartas = GetAPI($url);
+            $ListaCartas = GetAPI($url);
         ?>
         <div class="form-group col-md-4">
             <form class="card text-center bg-dark text-white"><label for="inputZip"><b>Lista de Cartas</b></label></form>
@@ -195,13 +210,15 @@ if(isset($_GET['id'])){
                     <tbody>
                         <?php
 
-                        if ($cartas != '') :
-                            foreach ($cartas as $carta) : ?>
+                        if ($ListaCartas != '') :
+                            foreach ($ListaCartas as $carta) :
+                                if (!array_search($carta['idt_carta'], array_column($cartasDeck, 'idt_carta'), false)):  ?>
                                 <tr>
-                                    <a href="#"><td class="lista-carta " id="<?= $carta['idt_carta'] ?>"><?= $carta['nme_carta'] ?></td></a>
+                                    <a href="#"><td class="lista-carta adiciona-carta" id="<?= $carta['idt_carta'] ?>"><?= $carta['nme_carta'] ?></td></a>
                                     <!-- <td><input style="width:50px;" type="number" min="0" max="3"></td> -->
                                 </tr>
-                            <?php endforeach;
+                                <?php endif;  
+                        endforeach;
                     endif; ?>
                     </tbody>
                 </table>
@@ -228,7 +245,37 @@ $('.lista-carta').click(function(){
         $('#conteudo').html(result);
       }
     });
-})
+});
+
+<?php if($deckEhDoUsuario): ?>
+$('.adiciona-carta').dblclick(function(){
+    carta = this.id;
+    deck = <?=$idDeck?>;
+    acao = 1;
+    editaCarta(carta, deck, acao)
+});
+
+$('.remove-carta').dblclick(function(){
+    carta = this.id;
+    deck = <?=$idDeck?>;
+    acao = 2;
+    editaCarta(carta, deck, acao);
+});
+
+function editaCarta(carta, deck, acao){
+    // alert('to aqui');
+    $.ajax({
+      url: 'edita-deck.php',
+      type: 'POST', // Send post data
+      data: 'carta='+carta+'&deck='+deck+'&acao='+acao,
+      success: function(result){
+        window.location.reload();
+        // console.log(result);
+        // $('#conteudo').html(result);
+      }
+    });
+}
+<?php endif; ?>
 </script>
 
 <?php include('../../inc/footer.php'); ?>

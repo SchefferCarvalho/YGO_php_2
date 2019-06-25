@@ -3,6 +3,7 @@ include('../../config.php');
 include('../../inc/funcoesGerais.php');
 
 $id = $_POST['id'];
+$_SESSION['carta-selecionada'] = $id;
 
 $urlCarta = $indexAPI . '/tb_carta/'.$id;
 $carta = GetAPI($urlCarta);
